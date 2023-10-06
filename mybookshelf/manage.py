@@ -2,11 +2,15 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from mybookshelf.settings import base
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mybookshelf.settings")
+    if base.DEBUG:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mybookshelf.settings.local")
+    else:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mybookshelf.settings.production")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
