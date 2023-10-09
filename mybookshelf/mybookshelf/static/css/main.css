@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&display=swap');
+
+
+.logo {
+    font-family: 'Autour One', cursive;
+    color: #f20089;
+}
+
+h3 {
+    font-family: 'Autour One', cursive;
+    font-size: 34px;
+    font-style: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+p {
+    font-family: 'Autour One', cursive;
+    font-size: 22px;
+    font-style: normal;
+}
+.button-primary {
+    background-color: #6a00f4;
+    border-color: #6a00f4;
+    color: white;
+}
+.button-primary:hover {
+    background-color: white;
+    border-color: #6a00f4;
+    color: #6a00f4;
+}
+
+.col-margin {
+    margin: 20px;
+}
