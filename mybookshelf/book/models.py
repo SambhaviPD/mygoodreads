@@ -5,6 +5,7 @@ from django.db import models
 # Create your models here.
 class Book(models.Model):
     options = (
+        ("just checking out", "Just Checking Out"),
         ("read", "Read"),
         ("reading", "Reading"),
         ("want to read", "Want to Read"),
@@ -14,7 +15,9 @@ class Book(models.Model):
     author = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     description = models.TextField()
-    cover = models.ImageField(upload_to="covers/", blank=True)
+    cover = models.ImageField(
+        upload_to="covers/", blank=True, verbose_name="Cover Image"
+    )
     status = models.CharField(
         max_length=30, choices=options, default="want to read"
     )

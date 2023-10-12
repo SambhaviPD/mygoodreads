@@ -1,0 +1,37 @@
+{% extends "../base/base.html" %}
+
+{% block title %} Sign in {% endblock %}
+
+
+{% block content %}
+    {% include "../base/navbar.html" %}
+    
+    {% if form.errors %}
+        <p>There is an error. Please correct and re-submit</p>
+        <ul class="errorlist">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+    {% else %}
+        <h3 style="text-align: center;color: #6a00f4">Sign Up</h3>
+    {% endif %}
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col"></div>
+            <div class="col">
+                <div class="login-form">
+                    <form action="{% url 'book:register' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn button-primary">Sign up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col"></div>
+    </div>
+    </div>
+{% endblock %}

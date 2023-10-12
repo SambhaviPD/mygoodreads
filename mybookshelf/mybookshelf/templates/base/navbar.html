@@ -6,15 +6,30 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'book:login' %}">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn button-primary">Sign Up</button>
-          </li>
+        {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'book:book-list' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'book:book-create' %}">Add a Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn button-primary" href="{% url 'book:logout' %}">Sign Out</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link">Welcome {{ request.user }} !</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'book:login' %}">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn button-primary" href="{% url 'book:register' %}">Sign Up</a>
+            </li>
+        {% endif %}
         </ul>
       </div>
     </div>

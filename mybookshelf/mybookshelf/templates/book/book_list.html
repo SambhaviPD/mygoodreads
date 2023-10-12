@@ -2,5 +2,20 @@
 
 {% block content %}
     {% include "../base/navbar.html" %}
-    <h3>A peek into your book shelf!</h3>
+    <h3 style="text-align: center;">A peek into your book shelf!</h3>
+    <div class="container">
+        <div class="row border-bottom pb-2 mb-3 custom-header-bg text-white">
+            <div class="col-2">Title</div>
+            <div class="col-2">Author</div>
+            <div class="col-2">Status</div>
+            <div class="col-3">Modify?</div>
+            <div class="col-3">Remove?</div>
+        </div>
+    </div>  
+    {% for book in books %}
+        {% include "../book/partials/book.html" %}
+        {% empty %}
+            <p style="text-align: center;">No books in your shelf yet 🙈!</p>
+    {% endfor %}
+    </div>
 {% endblock %}

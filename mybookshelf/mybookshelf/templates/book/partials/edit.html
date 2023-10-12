@@ -1,0 +1,9 @@
+<form
+    hx-post="{% url 'book:quick-edit' pk=book.pk %}"
+    hx-target="this"
+    hx-swap="outerHTML">
+    <input name='title' value="{{ book.title }}">
+    <input name='author' value="{{ book.author }}">
+    {{ book.status }}
+    <button class="btn button-secondary">Save</button>
+</form>

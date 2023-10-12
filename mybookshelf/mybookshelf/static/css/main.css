@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Autour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
 .logo {
@@ -6,18 +7,22 @@
     color: #f20089;
 }
 
+a {
+    font-family: 'Poppins', serif;
+}
+
 h3 {
-    font-family: 'Autour One', cursive;
+    font-family: 'Poppins', serif;
     font-size: 34px;
-    font-style: bold;
+    font-style: normal;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 p {
-    font-family: 'Autour One', cursive;
-    font-size: 22px;
-    font-style: normal;
+    font-family: 'Poppins', serif;
+    font-size: 18px;
+    font-style: light;
 }
 .button-primary {
     background-color: #6a00f4;
@@ -30,6 +35,37 @@ p {
     color: #6a00f4;
 }
 
+.button-secondary {
+    background-color: white;
+    border-color: #f20089;
+    color: #f20089;
+}
+.button-secondary:hover {
+    background-color: #f20089;
+    border-color: #f20089;
+    color: white;
+}
+
+ul.errorlist {
+    color: red; 
+}
+
+ul.errorlist li::marker {
+    content: none;
+}
+
+span.helptext {
+    font-size: x-small;
+    font-style: italic;
+    color: grey; 
+    display: block;
+}
+
 .col-margin {
     margin: 20px;
+}
+
+.custom-header-bg {
+    background-color: #6a00f4; 
+    font-weight: bold
 }
