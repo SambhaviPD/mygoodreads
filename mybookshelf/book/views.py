@@ -63,11 +63,8 @@ def delete_book(request, pk):
 def quick_edit(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
-        print("book = ", book)
         book.title = request.POST.get("title", "").strip()
         book.author = request.POST.get("author", "").strip()
-        print("book.title = ", book.title)
-        print("book.author = ", book.author)
         book.save()
         return render(request, "book/partials/book.html", {"book": book})
     return render(request, "book/partials/edit.html", {"book": book})
