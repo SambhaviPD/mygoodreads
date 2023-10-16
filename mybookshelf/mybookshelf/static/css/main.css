@@ -69,3 +69,12 @@ span.helptext {
     background-color: #6a00f4; 
     font-weight: bold
 }
+
+.custom-search {
+    border-color: #6a00f4;
+    border-width: 1px;
+    border-radius: 10%;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    padding: 10px;
+}

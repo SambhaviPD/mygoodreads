@@ -22,9 +22,5 @@ urlpatterns = [
         views.quick_edit,
         name="quick-edit",
     ),
-    path(
-        "books/<int:pk>/renderquickedit",
-        views.render_quick_edit_book,
-        name="book-render-quick-edit",
-    ),
+    path("search/", views.search, name="search"),
 ]

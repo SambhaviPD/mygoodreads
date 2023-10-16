@@ -1,0 +1,16 @@
+<h3 style="text-align: center;">Your search results below</h3>
+<div class="container">
+    <div class="row border-bottom pb-2 mb-3 custom-header-bg text-white">
+        <div class="col-2">Cover</div>            
+        <div class="col-2">Title</div>
+        <div class="col-2">Author</div>
+        <div class="col-2">Status</div>
+    </div>
+</div>  
+<div class="container">
+{% for book in page.object_list %}
+        <div class="text-black">{{ book.title }}</div>
+
+{% endfor %}
+</div>
+

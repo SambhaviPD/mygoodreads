@@ -1,0 +1,18 @@
+{% extends "../base/base.html" %}
+
+{% block content %}
+    {% include "../base/navbar.html" %}
+    <input name="q"
+        class="custom-search"
+        placeholder="Search for a Book title"
+        hx-get="{% url 'book:search' %}"
+        hx_target="closest section"
+        hx-trigger="input delay:0.2s"
+    >
+
+    <section id="results">
+        <div>
+            {% include "../book/partials/search_results.html" %}
+        </div>
+    </section>
+{% endblock %}

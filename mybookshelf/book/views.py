@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
@@ -30,7 +31,7 @@ def register(request):
 
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
-    template_name = "book/book_list.html"
+    template_name = "book/book-list.html"
     context_object_name = "books"
     paginate_by = 10
 
@@ -70,7 +71,22 @@ def quick_edit(request, pk):
     return render(request, "book/partials/edit.html", {"book": book})
 
 
-@require_http_methods(["GET"])
-def render_quick_edit_book(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, "book/_book_row.html", {"book": book})
+def search(request):
+    if request.htmx:
+        search = request.GET.get("q")
+        page_num = request.GET.get("page", 1)
+
+        if search:
+            books = Book.objects.filter(
+                title__icontains=search, created_by=request.user
+            )
+        else:
+            books = Book.objects.filter(created_by=request.user)
+
+        page = Paginator(object_list=books, per_page=5).get_page(page_num)
+        return render(
+            request=request,
+            template_name="book/partials/search_results.html",
+            context={"page": page},
+        )
+    return render(request, "book/search.html")
